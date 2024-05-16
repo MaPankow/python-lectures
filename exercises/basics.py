@@ -3,10 +3,18 @@ Schreibe je eine Funtion add, subtract, multiply, divide, die die
 jeweilige Grundrechenart auf die beiden übergebenen Parameter A und B
 anwendet.
 '''
-def add(a, b): pass
-# ...
-# ...
-# ...
+def add(a, b): 
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    return a / b
+
 
 '''
 Schreibe eine Funktion, die eine Temperatur in Celsius in eine Temperatur in
@@ -19,7 +27,9 @@ def inFahrenheit(celsius):
 
     :return: Converted temperature in Fahrenheit
     '''
-    pass
+
+    fahrenheit = celsius * 1.8 + 32
+    return fahrenheit
 
 '''
 Schreibe eine Funktion, die eine Temeratur in Fahrenheit in eine Temperatur
@@ -33,31 +43,37 @@ def inCelsius(fahrenheit):
     :return: Converted temperature in Celsius
     :rtype: float
     '''
-    pass
+    celsius = (fahrenheit - 32) / 1.8
+    return celsius
 
 '''
 Schreibe eine Funktion, die prüft, ob eine Zahl gerade ist.
 '''
-def isEven():
+def isEven(num):
     '''
     :param num: Number to test
     :type num: int
 
     :rtype: bool
     '''
-    pass
+    if num % 2 == 0:
+        return True
+
 
 '''
 Schreibe eine Funktion, die prüft, ob eine Zahl ungerade ist.
 '''
-def isOdd():
+def isOdd(num2):
+
+    if num2 % 2 != 0:
+        return True
     '''
     :param num: Number to test
     :type num: int
 
     :rtype: bool
     '''
-    pass
+    
 
 # Kontrollfluss
 
@@ -78,7 +94,17 @@ def jahreszeit(monat):
     :return: Jahreszeit
     :rtype: string
     '''
-    pass
+    match monat:
+        case 3 | 4 | 5:
+            return "Frühling"
+        case 6 | 7 | 8:
+            return "Sommer"
+        case 9 | 10 | 11:
+            return "Herbst"
+        case 12 | 1 | 2:
+            return "Winter"
+        case _:
+            return "Invalid input"
 
 '''
 Schreibe eine Funktion, die die Umsatzsteuer anhand des Umsatzes und des
