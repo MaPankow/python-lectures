@@ -39,5 +39,6 @@ monat = input("Den wievielten Monat haben wir gerade? ")
 monat = int(monat)
 antwort = jahreszeit(monat)
 print("Es ist gerade " + antwort + ".")
+print("----------------------------")
 
 # print(jahreszeit(3))
