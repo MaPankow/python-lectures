@@ -17,6 +17,13 @@ class TestBasics(unittest.TestCase):
     def test_divide(self):
         self.assertEqual(divide(12, 4), 3)
 
+    def test_in_fahrenheit(self):
+        self.assertEqual(inFahrenheit(0), 32)
+
+    def test_in_celsius(self):
+        self.assertEqual(inCelsius(32), 0)
+        self.assertAlmostEqual(inCelsius(0), -17.77777777777778)
+
     def test_umsatzsteuer_2005_18k(self):
         self.assertEqual(umsatzsteuer(18000, 2005), 3420)
     
