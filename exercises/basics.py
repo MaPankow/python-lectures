@@ -1,3 +1,5 @@
+from datetime import datetime
+
 '''
 Schreibe je eine Funtion add, subtract, multiply, divide, die die
 jeweilige Grundrechenart auf die beiden übergebenen Parameter A und B
@@ -113,17 +115,22 @@ der Freigrenze von 17.500 EUR (für die Steuerjahre 2003-2019) bzw. 22.000 EUR
 (für die Steuerjahre ab 2020) soll die Kleinunternehmerregelung angewendet
 und keine Umsatzsteuer berechnet werden. Der Rückgabewert ist dann 0.
 '''
-def umsatzsteuer(umsatz, steuerjahr = 2024):
-    '''
-    :param umsatz: Umsatz im Steuerjahr
-    :type umsatz: float
-    :param steuerjahr: Steuerjahr
-    :type steuerjahr: int
+def umsatzsteuer(umsatz, steuerjahr):
+    steuersatz = umsatz / 100 * 19
+    current_year = datetime.now().year
+    if steuerjahr >= 2003 and steuerjahr <= 2019:
+        if umsatz <= 17500:
+            return 0
+        else: return steuersatz
+    if steuerjahr > 2019 and steuerjahr < current_year:
+    # if steuerjahr > 2019 and steuerjahr < 2024:
+        if umsatz <= 22000:
+            return 0
+        else: return steuersatz
+    else:
+        return "Invalid input"
 
-    :return: Umsatzsteuer
-    :rtype: float
-    '''
-    pass
+    
 
 # match
 
@@ -153,7 +160,7 @@ def area (shape, params):
     :rtype: float
     '''
     import math
-    pass
+    
 
 # loops
 
@@ -174,7 +181,16 @@ erzeugt und auf der Konsole ausgibt.
 Siehe auch https://de.wikipedia.org/wiki/Fizz_buzz
 '''
 def fizzbuzz(n):
-    pass
+    for i in range(0, n):
+        i = i + 1
+        if i % 15 == 0:
+            print("fizzbuzz")
+        elif i % 3 == 0:
+            print("fizz")
+        elif i % 5 == 0:
+            print("buzz")
+        else:
+            print(i)
 
 # recursion
 
@@ -184,13 +200,12 @@ Schreibe eine rekursive Funktion, die die N-te Fibonacci-Zahl berechnet.
 Siehe auch https://de.wikipedia.org/wiki/Fibonacci-Folge
 '''
 def fibonacci(n):
-    '''
-    :type n: int
-    
-    :return: n-th Fibonacci number
-    :rtype: int
-    '''
-    pass
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
 
     
