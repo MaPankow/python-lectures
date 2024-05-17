@@ -1,4 +1,5 @@
 from datetime import datetime
+import math
 
 '''
 Schreibe je eine Funtion add, subtract, multiply, divide, die die
@@ -149,17 +150,22 @@ Beispiele für den `params` Parameter:
 { 'base': 2, 'height': 1 }
 
 '''
-def area (shape, params):
-    '''
-    :param shape: Shape
-    :type shape: string
-    :param params: Parameters of the shape
-    :type params: dict
+params = {
+   
+    "radius": 1.0,
+    "base": 2,
+    "height": 1.8
+}
 
-    :return: Area of the shape
-    :rtype: float
-    '''
-    import math
+def area (shape, params):
+    match shape:
+        case "circle":
+            return math.pi * (params["radius"] ** 2)
+        case "triangle":
+            return (params["base"] * params["height"]) / 2
+        case "rectangle":
+            return(params["base"]) * params["height"]
+
     
 
 # loops
@@ -172,7 +178,13 @@ Die Karten werden als Tupel bestehend aus Farbe und Wert dargestellt und alle
 Karten in einer Liste gesammelt zurückgegeben.
 '''
 def deckOfCards():
-    pass
+    colours = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
+    cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q', 'A']
+    for item in colours:
+        for card in cards:
+            print(item + ' - ' + card)
+        
+    
 
 '''
 Schreibe eine Funktion, die die ersten N Antworten für das FizzBuzz-Spiel
