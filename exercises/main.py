@@ -2,23 +2,23 @@ from basics import *
 
 
 
-print(add(2, 1))
+# print(add(2, 1))
 
-print(subtract(3, 4))
+# print(subtract(3, 4))
 
-print(multiply(7, 8))
+# print(multiply(7, 8))
 
-print(divide(8, 4))
+# print(divide(8, 4))
 
-print('-------------------')
+# print('-------------------')
 
-print(inFahrenheit(1))
+# print(inFahrenheit(1))
 
-print('-------------------')
+# print('-------------------')
 
-print(inCelsius(100))
+# print(inCelsius(100))
 
-print('-------------------')
+# print('-------------------')
 
 # zahl = input("Gib eine Zahl ein, um zu überprüfen, ob sie gerade ist")
 # zahl = int(zahl)
@@ -42,17 +42,20 @@ print('-------------------')
 # monat = int(monat)
 # antwort = jahreszeit(monat)
 # print("Es ist gerade " + antwort + ".")
+print('-------------------')
+
+deckOfCards()
 
 print('-------------------')
 
-print(umsatzsteuer(19000, 2023))
+# print(umsatzsteuer(19000, 2023))
 
-print('-------------------')
+# print('-------------------')
 
 
-fizzbuzz(20)
+# fizzbuzz(15)
 
-print('-------------------')
+# print('-------------------')
     
-for i in range(0, 10):
-    print(fibonacci(i))
+# for i in range(0, 10):
+#     print(fibonacci(i))
