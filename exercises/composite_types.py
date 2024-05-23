@@ -26,6 +26,11 @@ def draw(deck: list[tuple], random=False) -> tuple:
     '''
     pass
 
-# filter by suit
-# filter by rank
-# contains specific rank
+def filter_by(deck: list[tuple], suit=None, rank=None) -> list[tuple]:
+    '''Filter the deck by the given suit and rank.
+    When only suit is given, include cards of all ranks with the given suit.
+    When only rank is given, include cards of all suits with the given rank.
+    When both are given, only include cards with the given suit and rank.
+    When none are given, include all cards (no effect).
+    '''
+    pass
