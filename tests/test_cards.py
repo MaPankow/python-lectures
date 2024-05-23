@@ -34,6 +34,24 @@ class TestCards(unittest.TestCase):
         random.seed(self.seed)
         self.assertEqual(draw(self.deck, random=True), card)
 
+    def test_follows(self):
+        card = ('SPADES', 'ACE')
+        suits = SUITS - {'SPADES'}
+        ranks = [ rank for rank in RANKS if rank != 'ACE' ]
+
+        self.assertTrue(follows(card, suit='SPADES'))
+        self.assertTrue(follows(card, rank='ACE'))
+        self.assertTrue(follows(card, suit='SPADES', rank='ACE'))
+
+        for suit in suits:
+            self.assertFalse(follows(card, suit=suit))
+
+        for rank in ranks:
+            self.assertFalse(follows(card, rank=rank))
+
+        for suit, rank in [ (suit, rank) for suit in suits for rank in ranks ]:
+            self.assertFalse(follows(card, suit=suit, rank=rank))
+
     def test_filter_by_suit(self):
         suit = 'HEARTS'
         actual = sorted(filter_by(self.deck, suit=suit))
@@ -51,3 +69,12 @@ class TestCards(unittest.TestCase):
         actual = sorted(filter_by(self.deck, suit=suit, rank=rank))
         expected = sorted([c for c in self.deck if c == (suit, rank)])
         self.assertEquals(actual, expected)
+
+    def test_has_card_suit(self):
+        suit = 'DIAMONDS'
+        self.assertEquals(has_card(self.deck, suit=suit), True)
+        self.assertEquals(has_card(self.deck[:13], suit=suit), False)
+
+    def test_has_card_rank(self):
+        rank = 'ACE'
+        self.assertEquals(has_card(self.deck, rank=rank), True)

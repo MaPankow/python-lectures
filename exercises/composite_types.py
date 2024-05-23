@@ -29,6 +29,11 @@ def draw(deck: list[tuple], random=False) -> tuple:
     '''
     pass
 
+def follows(card, suit=None, rank=None):
+    '''Check whether a card follows a given suit and rank.
+    '''
+    pass
+
 def filter_by(deck: list[tuple], suit=None, rank=None) -> list[tuple]:
     '''Filter the deck by the given suit and rank.
     When only suit is given, include cards of all ranks with the given suit.
