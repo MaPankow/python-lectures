@@ -33,3 +33,21 @@ class TestCards(unittest.TestCase):
         card = self.deck[random.randint(0, len(self.deck)-1)]
         random.seed(self.seed)
         self.assertEqual(draw(self.deck, random=True), card)
+
+    def test_filter_by_suit(self):
+        suit = 'HEARTS'
+        actual = sorted(filter_by(self.deck, suit=suit))
+        expected = sorted([c for c in self.deck if c[0] == suit])
+        self.assertEquals(actual, expected)
+
+    def test_filter_by_rank(self):
+        rank = 'QUEEN'
+        actual = sorted(filter_by(self.deck, rank=rank))
+        expected = sorted([c for c in self.deck if c[1] == rank])
+        self.assertEquals(actual, expected)
+
+    def test_filter_by_suit_and_rank(self):
+        suit, rank = 'SPADES', 'ACE'
+        actual = sorted(filter_by(self.deck, suit=suit, rank=rank))
+        expected = sorted([c for c in self.deck if c == (suit, rank)])
+        self.assertEquals(actual, expected)
