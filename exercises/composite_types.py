@@ -23,6 +23,9 @@ def draw(deck: list[tuple], random=False) -> tuple:
     '''Draw a card from the deck.
     Choose a random card when random=True,
     otherwise choose top card.
+    
+    Hint: Use the randint() function:
+    from random import randint
     '''
     pass
 
