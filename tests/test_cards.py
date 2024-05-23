@@ -8,6 +8,7 @@ class TestCards(unittest.TestCase):
     def __init__(self, methodName: str = "runTest") -> None:
         super().__init__(methodName)
 
+        self.seed = 1337
         self.deck = [ (suit, rank) for suit in SUITS for rank in RANKS ]
         self.deck.sort()
     
@@ -28,7 +29,7 @@ class TestCards(unittest.TestCase):
         self.assertEqual(draw(self.deck), card)
 
     def test_draw_random(self):
-        random.seed(1337)
-        card = self.deck[randint(0, len(self.deck)-1)]
-        random.seed(1337)
+        random.seed(self.seed)
+        card = self.deck[random.randint(0, len(self.deck)-1)]
+        random.seed(self.seed)
         self.assertEqual(draw(self.deck, random=True), card)
