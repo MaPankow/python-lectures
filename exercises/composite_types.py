@@ -37,3 +37,8 @@ def filter_by(deck: list[tuple], suit=None, rank=None) -> list[tuple]:
     When none are given, include all cards (no effect).
     '''
     pass
+
+def has_card(deck: list[tuple], suit=None, rank=None) -> bool:
+    '''Check whether a deck has cards of a given suit and rank.
+    '''
+    pass
